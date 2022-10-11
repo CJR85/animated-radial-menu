@@ -25,9 +25,27 @@ body {
   position: absolute;
   left: 0;
   list-style: none;
+  transition-delay: calc(0.1s * var(--i));
   transition: 0.5s;
   transform-origin: 140px;
   transform: rotate(0deg) translateX(110px);
+}
+
+.menu.active li {
+  transform: rotate(calc(360deg / 8 * var(--i))) translateX(0px);
+}
+
+.menu li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  color: var(--clr);
+  border: 2px solid var(--clr);
+  border-radius: 50%;
+  font-size: 1.5em;
+  transform: rotate(calc(360deg / -8 * var(--i))) translateX(0px);
 }
 
 .menu .toggle {
@@ -45,4 +63,8 @@ body {
   z-index: 10000;
   font-size: 2em;
   transition: transform 1.25s;
+}
+
+.menu.active .toggle {
+  transform: rotate(315deg);
 }
